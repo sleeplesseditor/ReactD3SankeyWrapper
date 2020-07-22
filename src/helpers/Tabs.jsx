@@ -126,3 +126,38 @@ export const operatorTab = ({ counterParties, handleOperatorFormChange, operator
         </div>
     )
 }
+
+export const terminalTab = ({ handleTerminalCapacityChange, terminals }) => {
+    return (
+        <div>
+            <table className="table is-fullwidth">
+                <tbody>
+                    {terminals.map(terminal => (
+                        <tr key={terminal.name}>
+                            <td><span className="terminal-color" style={{ backgroundColor: terminal.color }} /> <span>{terminal.name}</span></td>
+                            <td>
+                                <input className="input has-text-right" type="number" step="100" name="terminal-name" value={terminal.totalCapacity} onChange={(e) => { handleTerminalCapacityChange(e, terminal.id); }} />
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    )
+}
+
+export const configTab = ({ configs, handleFlowDirection, updateGraph }) => {
+    return (
+        <div>
+            <h1 className="box__heading">Configure Settings</h1>
+            <div className="field is-grouped">
+                <p className="control">
+                    <button className="button is-info" onClick={handleFlowDirection}>{configs.toggleFlow ? 'Hide' : 'Show'} Flow</button>
+                </p>
+                <p className="control">
+                    <button className="button is-info" onClick={() => { updateGraph(true); }}>Reload Graph</button>
+                </p>
+            </div>
+        </div>
+    )
+}

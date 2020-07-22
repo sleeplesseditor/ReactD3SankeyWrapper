@@ -1,12 +1,10 @@
 import React from 'react';
-import Wrapper from './components/Wrapper';
+import SankeyPage from './pages/SankeyPage';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-    <Wrapper />
-    </div>
+    <SankeyPage />
   );
 }
 
